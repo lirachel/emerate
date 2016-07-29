@@ -10,7 +10,7 @@ void message_load(Window *window){
  	text_layer_set_text_color(messageLayer, GColorBlack);
 	text_layer_set_font(messageLayer, fonts_get_system_font(FONT_KEY_GOTHIC_18));
 	text_layer_set_text_alignment(messageLayer, GTextAlignmentCenter);
-	text_layer_set_text(messageLayer, "DEFAULT TEXT");
+	text_layer_set_text(messageLayer, "Help I've fallen and I can't get up at [location].");
 	layer_add_child(window_get_root_layer(message), text_layer_get_layer(messageLayer));
 }
 
