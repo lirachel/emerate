@@ -5,19 +5,19 @@ Window *addContact;
 TextLayer *addName, *addNumber;
 
 void addContact_load(Window *window){
-	addName = text_layer_create(GRect(0, 0, 144, 168));
+	addName = text_layer_create(GRect(5, 10, 144, 168));
 	text_layer_set_background_color(addName, GColorClear);
  	text_layer_set_text_color(addName, GColorBlack);
 	text_layer_set_font(addName, fonts_get_system_font(FONT_KEY_GOTHIC_18));
-	text_layer_set_text_alignment(addName, GTextAlignmentCenter);
+	text_layer_set_text_alignment(addName, GTextAlignmentLeft);
 	text_layer_set_text(addName, "Name: ");
 	layer_add_child(window_get_root_layer(addContact), text_layer_get_layer(addName));
 	
-	addNumber = text_layer_create(GRect(0, 0, 144, 168));
+	addNumber = text_layer_create(GRect(5, 50, 144, 168));
 	text_layer_set_background_color(addNumber, GColorClear);
  	text_layer_set_text_color(addNumber, GColorBlack);
 	text_layer_set_font(addNumber, fonts_get_system_font(FONT_KEY_GOTHIC_18));
-	text_layer_set_text_alignment(addNumber, GTextAlignmentCenter);
+	text_layer_set_text_alignment(addNumber, GTextAlignmentLeft);
 	text_layer_set_text(addNumber, "Mobile Number: ");
 	layer_add_child(window_get_root_layer(addContact), text_layer_get_layer(addNumber));
 }
@@ -34,6 +34,8 @@ void addContact_create(){
     .unload = addContact_unload
  	});
 	window_set_background_color(addContact, GColorWhite);
+	
+	window_stack_push(addContact, true);
 }
 
 void addContact_destroy(){

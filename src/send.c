@@ -5,10 +5,10 @@ Window *send;
 TextLayer *sendLayer;
 
 void send_load(Window *window){
-	sendLayer = text_layer_create(GRect(0, 0, 144, 168));
+	sendLayer = text_layer_create(GRect(0, 50, 144, 168));
 	text_layer_set_background_color(sendLayer, GColorClear);
  	text_layer_set_text_color(sendLayer, GColorBlack);
-	text_layer_set_font(sendLayer, fonts_get_system_font(FONT_KEY_GOTHIC_18));
+	text_layer_set_font(sendLayer, fonts_get_system_font(FONT_KEY_GOTHIC_28_BOLD ));
 	text_layer_set_text_alignment(sendLayer, GTextAlignmentCenter);
 	text_layer_set_text(sendLayer, "Text sent!");
 	layer_add_child(window_get_root_layer(send), text_layer_get_layer(sendLayer));
@@ -25,6 +25,8 @@ void send_create(){
     .unload = send_unload
  	});
 	window_set_background_color(send, GColorWhite);
+	
+	window_stack_push(send, true);
 }
 
 void send_destroy(){

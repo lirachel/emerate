@@ -1,4 +1,5 @@
 #pragma once
+#include <pebble.h>
 
 void momContact_create();
 void momContact_destroy();

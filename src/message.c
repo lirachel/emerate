@@ -5,7 +5,7 @@ Window *message, *changeMessage;
 TextLayer *messageLayer, *diffMessage;
 
 void message_load(Window *window){
-	messageLayer = text_layer_create(GRect(0, 0, 144, 168));
+	messageLayer = text_layer_create(GRect(0, 50, 144, 168));
 	text_layer_set_background_color(messageLayer, GColorClear);
  	text_layer_set_text_color(messageLayer, GColorBlack);
 	text_layer_set_font(messageLayer, fonts_get_system_font(FONT_KEY_GOTHIC_18));
@@ -25,6 +25,8 @@ void message_create(){
     .unload = message_unload
  	});
 	window_set_background_color(message, GColorWhite);
+	
+	window_stack_push(message, true);
 }
 
 void message_destroy(){
@@ -36,7 +38,7 @@ Window *get_message(){
 }
 
 void changeMessage_load(Window *window){
-	diffMessage = text_layer_create(GRect(0, 0, 144, 168));
+	diffMessage = text_layer_create(GRect(0, 50, 144, 168));
 	text_layer_set_background_color(diffMessage, GColorClear);
  	text_layer_set_text_color(diffMessage, GColorBlack);
 	text_layer_set_font(diffMessage, fonts_get_system_font(FONT_KEY_GOTHIC_18));
@@ -56,6 +58,8 @@ void changeMessage_create(){
     .unload = changeMessage_unload
  	});
 	window_set_background_color(changeMessage, GColorWhite);
+	
+	window_stack_push(changeMessage, true);
 }
 
 void changeMessage_destroy(){
